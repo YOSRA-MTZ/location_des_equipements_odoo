@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Template du rapport -->
+         #Graph
+        <record id="clients_graph" model="ir.ui.view">
+            <field name="name">client.model.graph</field>
+            <field name="model">client.model</field>
+            <field name="arch" type="xml">
+                <graph string="Clients" sample="3">
+                    <field name="sexe"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_dashboard" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="res_model">client.model</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+        <menuitem id="menu_dashboard" name="Dashboard" parent="menu_location_equipements" action="action_dashboard" sequence="30"/>
+    </data>
+</odoo>

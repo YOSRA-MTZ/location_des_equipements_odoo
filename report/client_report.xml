@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="client_report"
+        model="client.model"
+        string="Rapport client"
+        report_type="qweb-pdf"
+        name="location_equipements.client_report_template"
+        file="location_equipements.client_report_template"
+        print_report_name="'Rapport_client_' + object.name"
+    />
+</odoo>

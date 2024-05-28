@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- Define the tree view for the equipement.invoice model -->
+        <record id="view_equipement_invoice_tree" model="ir.ui.view">
+            <field name="name">equipement.invoice.tree</field>
+            <field name="model">equipement.invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Equipement Invoices">
+                    <field name="client_id"/>
+                    <field name="equipement_id"/>
+                    <field name="rental_date"/>
+                    <field name="return_date"/>
+                    <field name="total_price"/>
+                    <field name="status"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define the form view for the equipement.invoice model -->
+        <record id="view_equipement_invoice_form" model="ir.ui.view">
+            <field name="name">equipement.invoice.form</field>
+            <field name="model">equipement.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Equipement Invoice">
+                    <sheet>
+                        <group>
+                            <field name="client_id"/>
+                            <field name="equipement_id"/>
+                            <field name="rental_date"/>
+                            <field name="return_date"/>
+                            <field name="total_price"/>
+                            <field name="status" widget="selection"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_invoice" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">equipement.invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_invoices" name="Invoices" parent="menu_location_equipements" action="action_invoice" sequence="30"/>
+    </data>
+</odoo>

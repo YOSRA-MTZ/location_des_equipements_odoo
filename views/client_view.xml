@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    #tree
+    <record id="client_tree" model="ir.ui.view">
+        <field name="name">client.model.tree</field>
+        <field name="model">client.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                 <field name="cin" />
+                <field name="sexe" />
+                 <field name="email" />
+                <field  name="date_naissance"  />
+
+                <field name="address"  />
+            </tree>
+        </field>
+    </record>
+
+    #Formulaire
+
+    <record id="client_form" model="ir.ui.view">
+        <field name="name">client.model.form</field>
+        <field name="model">client.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <field name="image" widget='image' class="oe_avatar"
+                           options='{"zoom": true, "preview_image":"image"}'/>
+                    <div class="oe_title">
+                        <h1 class="d-flex">
+                            <field name="name" placeholder="Nom du Client" required="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+
+                            <field name="cin" placeholder="Matricule" />
+                            <field name="sexe" placeholder="Genre"/>
+                            <field name="phone" placeholder="Tél" />
+
+                        </group>
+                        <group>
+                               <field name="email" placeholder="Email"/>
+                            <field  name="date_naissance" placeholder="Date de Naissance" />
+
+                            <field name="address" placeholder="Adresse" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_client_kanban" model="ir.ui.view">
+    <field name="name">client.model.kanban</field>
+    <field name="model">client.model</field>
+    <field name="arch" type="xml">
+        <kanban>
+             <field name="id"/>
+            <field name="name"/>
+            <field name="phone"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_vignette oe_semantic_html_override oe_kanban_global_click">
+                    <a type="open" href="#" class="o_kanban_image oe_kanban_action">
+                                <img alt="Open" t-att-src="kanban_image('client.model', 'image', record.id.raw_value)" class="img-fluid" style="width:100px;"/>
+                            </a>
+                         <div class="oe_kanban_details">
+                            <h4 class="oe_partner_heading">
+                                <a type="open" class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </a>
+                            </h4>
+                            <div class="oe_kanban_content">
+                                <field name="phone"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+
+    #ACTION
+    <record id="clients_action" model="ir.actions.act_window">
+        <field name="name">Clients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client.model</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Inserez Vos Informations
+            </p>
+        </field>
+    </record>
+
+
+    #MENU
+    <menuitem id="menu_location_equipements" name="Location Equipements" sequence="10"/>
+    <menuitem id="menu_clients" name="Clients" parent="menu_location_equipements" action="clients_action" sequence="10"/>
+
+</odoo>

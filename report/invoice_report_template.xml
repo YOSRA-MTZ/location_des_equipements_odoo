@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="equipement_invoice_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-name="report.external_layout_header">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img t-att-src="'/location_equipements/static/src/img/img_1.png'"
+                                     style="max-height:140px;width:100%;margin-bottom:30px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table border="0" cellpadding="30" style="width:100%; font-size:18px; margin-bottom:80px;">
+                            <tr>
+                                <th>Client</th>
+                                <th>Date de Facturation</th>
+                                <th>Proprietaire</th>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center"><t t-esc="o.client_id.name"/></td>
+                                  <td  style="text-align:center"><t t-esc="o.rental_date.strftime('%d / %m / %Y') if o.rental_date else ''"/></td>
+                                <td  style="text-align:center">MyCompany</td>
+                            </tr>
+                            <tr>
+                                 <td  style="text-align:center"><t t-esc="o.client_id.phone"/></td>
+                                <td></td>
+                                <td  style="text-align:center">0682289147</td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-sm o_main_table" name="facturation" style="margin-bottom:80px;">
+
+                             <tr style="font-size:25px;">
+                            <th name="th_reference">
+                                <span>Equipement</span>
+                            </th>
+                            <th name="th_rental_date">
+                                <span>Date de Location</span>
+                            </th>
+                            <th name="th_return_date">
+                                <span>Date de Retour</span>
+                            </th>
+                            <th name="th_total_price">
+                                <span>Prix Total</span>
+                            </th>
+                            <th name="th_status">
+                                <span>Statut</span>
+                            </th>
+                        </tr>
+                                <tr style="font-size:18px;">
+                                    <td><t t-esc="o.equipement_id.name"/></td>
+                                      <td>
+                                <t t-esc="o.rental_date.strftime('%d / %m / %Y') if o.rental_date else ''"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.return_date.strftime('%d / %m / %Y') if o.return_date else ''"/>
+                            </td>
+                                    <td><t t-esc="o.total_price"/></td>
+                                                              <td><t t-esc="dict(o._fields['status'].selection).get(o.status)"/></td>
+
+                                </tr>
+                        </table>
+                        <p style="position:fixed;top:530px;left:600px;font:bold 20px Arial,serif;">
+                                <b>Signature et Cachet :</b>
+                            </p>
+                        <div style="position:fixed;top:800px;padding:18px ;left:187px; width:60% ;border:1px solid black;">En cas de retard de paiement, seront exigibles, conformément à l'article L 441-6 du code de commerce, une indemnité calculée sur la base de trois fois le taux de l'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 dhs.</div>
+                    </div>
+                </t>
+
+                <t t-name="report.external_layout_footer">
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img t-att-src="'/location_equipement/static/src/img/img_1.png'"
+                                     style="max-height:120px;width:100%;"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+            </t>
+        </t>
+    </template>
+</odoo>

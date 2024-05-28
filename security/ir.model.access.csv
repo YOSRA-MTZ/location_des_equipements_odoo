@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_client_model,access.client.model,model_client_model,base.group_user,1,1,1,1
+access_equipement_model,access.equipement.model,model_equipement_model,base.group_user,1,1,1,1
+access_rental_model,access_rental_model,model_rental_model,base.group_user,1,1,1,1
+access_equipement_invoice,access_equipement_invoice,model_equipement_invoice,base.group_user,1,1,1,1
