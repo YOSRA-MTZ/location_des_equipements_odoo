@@ -16,17 +16,20 @@
 
     # always loaded
      'data': [
-
+         'views/dashboard_view.xml',
         'views/client_view.xml',
         'views/equipement_view.xml',
         'views/rental_view.xml',
         'views/invoice_view.xml',
+         'views/maintenance_view.xml',
         'security/ir.model.access.csv',
         'report/client_report_template.xml',
         'report/client_report.xml',
          'report/report_invoice.xml',
         'report/invoice_report_template.xml',
-         'views/dashboard_view.xml',
+        'report/rental_report.xml',
+        'report/rental_report_template.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

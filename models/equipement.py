@@ -15,4 +15,5 @@ class Equipement(models.Model):
     status = fields.Selection([
         ('available', 'Available'),
         ('rented', 'Rented'),
+        ('under maintenance', 'Under maintenance'),
     ], string='Status', default='available', readonly=True)

@@ -5,3 +5,4 @@ from . import client
 from . import equipement
 from . import rental
 from . import invoice
+from . import maintenance

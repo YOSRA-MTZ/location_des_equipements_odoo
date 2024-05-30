@@ -9,7 +9,7 @@ class Invoice(models.Model):
     equipement_id = fields.Many2one('equipement.model', string='Equipement', related='rental_id.equipement_id')
     rental_date = fields.Date(string='Rental Date', related='rental_id.start_date')
     return_date = fields.Date(string='Return Date', related='rental_id.end_date')
-    total_price = fields.Float(string='Total Price', readonly=True, related='rental_id.total_price')
+    total_price = fields.Float(string='Total Price', readonly=True, related='rental_id.total_price', store=True)
     status = fields.Selection([
         ('not_paid', 'Not Paid'),
         ('paid', 'Paid')

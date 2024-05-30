@@ -39,11 +39,20 @@
                 </form>
             </field>
         </record>
-
+        <record id="view_invoice_graph" model="ir.ui.view">
+                    <field name="name">equipement.invoice.graph</field>
+                    <field name="model">equipement.invoice</field>
+                    <field name="arch" type="xml">
+                        <graph string="Invoices" type="bar">
+                            <field name="total_price" type="measure"/>
+                            <field name="status" type="row"/>
+                        </graph>
+                    </field>
+                </record>
         <record id="action_invoice" model="ir.actions.act_window">
             <field name="name">Invoices</field>
             <field name="res_model">equipement.invoice</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
 
         <menuitem id="menu_invoices" name="Invoices" parent="menu_location_equipements" action="action_invoice" sequence="30"/>
