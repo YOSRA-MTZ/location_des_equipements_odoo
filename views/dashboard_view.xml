@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Vue graphique pour les clients -->
         <record id="clients_graph" model="ir.ui.view">
             <field name="name">client.model.graph</field>
             <field name="model">client.model</field>
@@ -12,7 +11,6 @@
             </field>
         </record>
 
-        <!-- Vue graphique pour les factures -->
         <record id="view_invoice_graph" model="ir.ui.view">
             <field name="name">equipement.invoice.graph</field>
             <field name="model">equipement.invoice</field>
@@ -24,7 +22,6 @@
             </field>
         </record>
 
-        <!-- Action pour ouvrir le tableau de bord des clients -->
         <record id="action_client_dashboard" model="ir.actions.act_window">
             <field name="name">Client Dashboard</field>
             <field name="res_model">client.model</field>
@@ -32,7 +29,6 @@
             <field name="view_id" ref="clients_graph"/>
         </record>
 
-        <!-- Action pour ouvrir le tableau de bord des factures -->
         <record id="action_invoice_dashboard" model="ir.actions.act_window">
             <field name="name">Invoice Dashboard</field>
             <field name="res_model">equipement.invoice</field>
@@ -40,13 +36,8 @@
             <field name="view_id" ref="view_invoice_graph"/>
         </record>
 
-        <!-- Menu principal pour le tableau de bord -->
         <menuitem id="menu_dashboard" name="Dashboard" parent="menu_location_equipements" sequence="30"/>
-
-        <!-- Sous-menu pour le tableau de bord des clients -->
         <menuitem id="menu_client_dashboard" name="Client Dashboard" parent="menu_dashboard" action="action_client_dashboard" sequence="10"/>
-
-        <!-- Sous-menu pour le tableau de bord des factures -->
         <menuitem id="menu_invoice_dashboard" name="Invoice Dashboard" parent="menu_dashboard" action="action_invoice_dashboard" sequence="20"/>
     </data>
 </odoo>

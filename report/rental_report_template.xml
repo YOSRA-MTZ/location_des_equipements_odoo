@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="rental_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div style="text-align: justify;">
+                                <h2 style="text-align: center;">Contrat de location d'équipement</h2>
+
+                                <p>Entre les soussignés :</p>
+
+                                <p>Le propriétaire : <strong > Mycompany</strong>, demeurant à Maroc, ci-après désigné "le Bailleur",</p>
+
+                                <p>Et le locataire : <strong> <span t-field="o.client_id.name"/></strong> ,demeurant à <strong><span t-field="o.client_id.address"/></strong>, ci-après désigné "le Locataire".</p>
+
+                                <p>Il a été convenu et arrêté ce qui suit :</p>
+
+                                <p><strong>Article 1 - Objet du contrat</strong></p>
+
+                                <p>Le Bailleur donne en location à partir du <span t-field="o.start_date"/> jusqu'au <span t-field="o.end_date"/>, l'équipement suivant :</p>
+
+                                <p>L'équipement <strong><span t-field="o.equipement_id.name"/></strong> ,son modèle est <strong><span t-field="o.equipement_id.model"/></strong> et tous ses accessoires .</p>
+
+                                <p><strong>Article 2 - Montant de la location</strong></p>
+
+                                <p>Le montant de la location est fixé à <strong><span t-field="o.total_price"/></strong> payable par le Locataire à la signature du contrat.</p>
+
+                                <p><strong>Article 3 - Dépôt de garantie</strong></p>
+
+                                <p>Le Locataire verse un dépôt de garantie d'un montant de 400 DH à la signature du contrat. Ce dépôt de garantie sera restitué à la fin de la location, déduction faite des éventuelles dégradations constatées.</p>
+
+                                <p><strong>Article 4 - Conditions</strong></p>
+
+                                <p>Le Locataire s'engage à utiliser l'équipement loué de manière appropriée et à le retourner en bon état à la fin de la période de location.</p>
+
+                                <p><strong>Article 5 - Résiliation du contrat</strong></p>
+
+                                <p>Le présent contrat pourra être résilié par l'une ou l'autre des parties moyennant un préavis de 10 jours.</p>
+
+                                <p>Fait en double exemplaire à Casablanca.</p>
+
+                                <div style="margin-top: 50px;">
+                                    <div style="float: left; width: 50%;">
+                                        <h4>Le Bailleur,</h4>
+                                    </div>
+
+                                    <div style="float: right; width: 50%;">
+                                        <h4>Le Locataire,</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="rental_report"
+            string="Rental Contract"
+            model="rental.model"
+            report_type="qweb-pdf"
+            name="location_equipements.rental_report_template"
+            file="location_equipements.rental_report_template"
+            print_report_name="'Contrat_' + object.client_id.name"
+        />
+    </data>
+</odoo>

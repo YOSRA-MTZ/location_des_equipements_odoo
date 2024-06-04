@@ -9,10 +9,9 @@
             <tree>
                  <field name="equipement_number"/>
                 <field name="name"/>
+                <field name="model" />
                 <field name="price"/>
 
-                <field name="model" />
-                <field name="price" />
                 <field name="status" />
             </tree>
         </field>
@@ -69,7 +68,12 @@
                                     </a>
                                 </h4>
                                 <div class="oe_kanban_content">
-                                    <field name="status"/>
+                                     <div>
+                                        <strong>Model:</strong> <field name="model"/>
+                                    </div>
+                                    <div>
+                                        <strong>Status:</strong> <field name="status"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
